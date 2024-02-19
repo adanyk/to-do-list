@@ -53,7 +53,7 @@ describe('TodosComponent', () => {
     expect(component.inputTodo).toBe("");
   });
 
-  it('should not add todo when input is empty or has only white spaces', () => {
+  it('should not add todo when input is empty or has only white spaces, but still reset input field', () => {
     const initialTodos = component.todos;
     component.inputTodo = "";
 
@@ -62,5 +62,6 @@ describe('TodosComponent', () => {
     component.addTodo();
 
     expect(component.todos).toBe(initialTodos);
+    expect(component.inputTodo).toBe("");
   });
 });
