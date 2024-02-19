@@ -28,7 +28,7 @@ export class TodosComponent {
   addTodo(): void {
     if (this.inputTodo.trim()) {
       this.todos.push({ content: this.inputTodo, completed: false });
-      this.inputTodo = "";
     }
+    this.inputTodo = "";
   }
 }
