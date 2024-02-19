@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Todo } from '../../models/todo';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,14 +12,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class TodosComponent {
   todos: Todo[] = [
-    {
-      content: 'First todo',
-      completed: false
-    },
-    {
-      content: 'Second todo',
-      completed: true
-    }
+    { content: 'First todo', completed: false },
+    { content: 'Second todo', completed: true }
   ];
   inputTodo: string = "";
 
@@ -28,14 +22,13 @@ export class TodosComponent {
   }
 
   deleteTodo(id: number): void {
-    this.todos = this.todos.filter((v, i) => i !== id);
+    this.todos = this.todos.filter((_, index) => index !== id);
   }
 
   addTodo(): void {
-    this.todos.push({
-      content: this.inputTodo,
-      completed: false
-    })
-    this.inputTodo = "";
+    if (this.inputTodo.trim()) {
+      this.todos.push({ content: this.inputTodo, completed: false });
+      this.inputTodo = "";
+    }
   }
 }
