@@ -70,6 +70,9 @@
           "options": {
             "buildTarget": "to-do-app:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
